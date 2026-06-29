@@ -18,7 +18,5 @@ include_directories(${CMAKE_SOURCE_DIR}/include)
 # Create the executable
 add_executable(packet_analyzer ${SOURCES})
 
-# For macOS, we might need to link against system libraries later
-if(APPLE)
-    # Add any macOS-specific settings here
-endif()
+# Directly link pcap (no find_package needed on Linux/WSL)
+target_link_libraries(packet_analyzer pcap)
