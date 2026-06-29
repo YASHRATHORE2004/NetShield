@@ -925,6 +925,10 @@ python3 generate_test_pcap.py
 
 ## 11. Understanding the Output
 
+## Future Roadmap
+
+The project is positioned to evolve from a prototype DPI engine into a professional network security platform. Planned milestones include an analytics engine for traffic insight, threat detection capabilities, a reporting engine, structured logging, a configuration system, benchmarking, a dashboard, a REST API, expanded testing, and CI/CD automation.
+
 ## Future Development Roadmap
 
 The repository is currently a solid prototype for packet inspection and flow-based filtering, but it is designed to grow into a broader networking platform. Planned evolution includes a stronger analytics engine for traffic insights, threat detection capabilities, a formal configuration system, structured logging, benchmarking, JSON and CSV reporting, a dashboard, expanded testing coverage, and CI/CD automation.
