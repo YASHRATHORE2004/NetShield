@@ -15,8 +15,11 @@ set(SOURCES
 # Header files location
 include_directories(${CMAKE_SOURCE_DIR}/include)
 
+# Find Threads (Required for the HTTP Server)
+find_package(Threads REQUIRED)
+
 # Create the executable
 add_executable(packet_analyzer ${SOURCES})
 
-# Directly link pcap (no find_package needed on Linux/WSL)
-target_link_libraries(packet_analyzer pcap)
+# Link pcap and threading
+target_link_libraries(packet_analyzer pcap Threads::Threads)
