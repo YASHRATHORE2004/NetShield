@@ -4,6 +4,12 @@ This document explains **everything** about the NetShield project—from basic n
 
 ---
 
+### Project UI Preview
+
+| Dashboard Overview | Anomaly Detection Log |
+| :---: | :---: |
+| ![Dashboard](assets/dashboard.png) | ![Anomaly Log](assets/ai_threat.png) |
+
 ## Table of Contents
 
 1. [What is NetShield?](#1-what-is-netshield)
