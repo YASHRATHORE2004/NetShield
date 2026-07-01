@@ -87,6 +87,10 @@ NetShield is built on a **Tri-Plane Architecture** that bridges low-level system
 │  - Renders live PPS charts (Recharts)                   │
 │  - Displays Active IPs and AI Threat Logs               │
 └─────────────────────────────────────────────────────────┘
+```
+
+---
+
 
 ## 4. File Structure
 
@@ -110,7 +114,9 @@ NetShield/
 ├── generate_test_pcap.py         # Python utility to generate test packets
 ├── ml_detector.py                # Python Machine Learning Daemon
 └── README.md                     # Project documentation
+```
 
+---
 
 ## 5. The Journey of a Packet (C++ Core Engine)
 
@@ -120,7 +126,7 @@ NetShield/
 4. **Feature Extraction:** A dedicated C++ background thread wakes up every few seconds, calculates traffic variance (total packets, SYN flags, unique ports), and writes this strictly formatted data to `traffic_features.csv`.
 5. **API Broadcasting:** Another C++ thread runs a lightweight HTTP server, exposing `total_packets` and `active_ips` as a JSON response on port `8080`.
 
-
+---
 
 ## 6. The Journey of Features (Python ML Pipeline)
 
@@ -130,6 +136,7 @@ NetShield/
 4. **Anomaly Scoring:** New data points are fed into the SVM. If the algorithm outputs a `-1`, it registers a Zero-Day mathematical anomaly.
 5. **Threat Dispatch:** The anomaly is immediately appended to an internal list, which is broadcasted to the frontend via a Flask background thread running on port `8081`.
 
+---
 
 ## 7. The Real-Time SOC (React Frontend)
 
@@ -139,6 +146,7 @@ The frontend transforms raw backend data into actionable threat intelligence.
 - **Visuals:** Features a live Packets-Per-Second (PPS) line chart, a dynamically sorting Top Talkers IP table, and a dedicated Red-Team AI Anomaly Log that flashes when the SVM detects an attack.
 - **Demo Mode:** Includes a built-in toggle that simulates live network traffic, randomized IP generation, and fake AI anomaly triggers. This allows recruiters to experience the full dashboard UI via cloud hosting (e.g., Vercel) without needing the local C++ system engine running.
 
+---
 
 ## 8. Building and Running
 
