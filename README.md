@@ -86,23 +86,24 @@ NetShield is built on a **Tri-Plane Architecture** that bridges low-level system
 
 ```text
 NetShield/
-├── build/                        # C++ Compilation Directory
-│   ├── packet_analyzer           # Compiled C++ Executable
-│   ├── traffic_features.csv      # Bridge between C++ and Python
-│   ├── ml_detector.py            # Python Machine Learning Daemon
-│   └── ml_env/                   # Python Virtual Environment
-│
+├── build/                        # C++ Compilation Directory & CSV data stream
+├── include/                      # C++ Header files (httplib.h, rule_manager.h, etc.)
+├── ml_env/                       # Python Virtual Environment
+├── netshield-ui/                 # React Frontend Workspace
+│   ├── src/
+│   │   ├── App.jsx               # Main Dashboard Component
+│   │   └── index.css             # Tailwind configurations
+│   ├── package.json
+│   └── tailwind.config.js
 ├── src/                          # C++ Source Code
 │   ├── main.cpp                  # Multi-threaded C++ Entry Point
 │   ├── pcap_reader.cpp           # libpcap integration
 │   └── packet_parser.cpp         # Deep packet inspection logic
-│
-└── netshield-ui/                 # React Frontend Workspace
-    ├── src/
-    │   ├── App.jsx               # Main Dashboard Component
-    │   └── index.css             # Tailwind configurations
-    ├── package.json
-    └── tailwind.config.js
+├── tests/                        # C++ Unit testing files (TDD)
+├── CMakeLists.txt                # CMake build configuration
+├── generate_test_pcap.py         # Python utility to generate test packets
+├── ml_detector.py                # Python Machine Learning Daemon
+└── README.md                     # Project documentation
 
 
 ## 5. The Journey of a Packet (C++ Core Engine)
@@ -130,6 +131,7 @@ The frontend transforms raw backend data into actionable threat intelligence.
 - **Tech Stack:** React (Vite), Tailwind CSS, Recharts, Lucide Icons.
 - **State Management:** Uses `useRef` to track cumulative packet counts without disrupting the `setInterval` polling loop.
 - **Visuals:** Features a live Packets-Per-Second (PPS) line chart, a dynamically sorting Top Talkers IP table, and a dedicated Red-Team AI Anomaly Log that flashes when the SVM detects an attack.
+- **Demo Mode:** Includes a built-in toggle that simulates live network traffic, randomized IP generation, and fake AI anomaly triggers. This allows recruiters to experience the full dashboard UI via cloud hosting (e.g., Vercel) without needing the local C++ system engine running.
 
 
 ## 8. Building and Running
