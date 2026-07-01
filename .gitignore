@@ -40,3 +40,29 @@ logs/
 
 # Linux
 *.swp
+
+
+# =========================
+# Python / ML Environment
+# =========================
+ml_env/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# =========================
+# Node.js / React Frontend
+# =========================
+node_modules/
+.env
+.env.local
+dist/
+
+# =========================
+# NetShield Specific Data
+# =========================
+# Ignore live traffic data and large dumps
+traffic_features.csv
+output.pcap
+
+# (Note: test_dpi.pcap is NOT ignored so it stays in the repo for testing)
